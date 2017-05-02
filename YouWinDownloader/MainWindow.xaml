@@ -1,0 +1,35 @@
+﻿<Window x:Class="YouWinDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YouWinDownloader"
+        mc:Ignorable="d"
+        Title="YouWindownloader" Height="508" Width="525">
+    <Grid>
+        <Label x:Name="urlLabel" Content="url:" HorizontalAlignment="Left" Margin="21,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.923,-1.154" Height="23"/>
+        <TextBox x:Name="urlTextBox" HorizontalAlignment="Left" Height="23" Margin="48,21,0,0" TextWrapping="Wrap" Text="Full url including http://" VerticalAlignment="Top" Width="287" GotFocus="urlTextBox_GotFocus" LostFocus="urlTextBox_LostFocus" KeyDown="urlTextBox_KeyDown"/>
+        <Button x:Name="validateBtn" Content="Validate!" HorizontalAlignment="Left" Margin="340,21,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="validateBtn_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="473" Margin="21,71,0,0">
+            <CheckBox x:Name="musicCheckBox" Content="Music&#xD;&#xA;" IsEnabled="False" Checked="musicCheckBox_Checked" Unchecked="musicCheckBox_Unchecked"/>
+        </Border>
+        <Label x:Name="optionLabel" Content="Available Options:" HorizontalAlignment="Left" Margin="21,44,0,0" VerticalAlignment="Top" Height="23"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="21,176,0,0" VerticalAlignment="Top" Width="473">
+            <CheckBox x:Name="videoCheckBox" Content="Video&#xD;&#xA;" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked"/>
+        </Border>
+        <Label Content="Download location" HorizontalAlignment="Left" Margin="16,399,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="fileLocationLabel" HorizontalAlignment="Left" Height="23" Margin="21,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
+        <Button x:Name="openFolderBtn" Content="Open..." HorizontalAlignment="Left" Margin="274,425,0,0" VerticalAlignment="Top" Width="56" Height="23" IsEnabled="False" Click="openFolderBtn_Click"/>
+        <Button x:Name="downloadBtn" Content="Download!" HorizontalAlignment="Left" Margin="419,425,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False"/>
+        <Button x:Name="clearBtn" Content="Clear" HorizontalAlignment="Left" Margin="420,21,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="clearBtn_Click"/>
+        <Label Content="File output options:" HorizontalAlignment="Left" Margin="90,72,0,0" VerticalAlignment="Top" Height="27"/>
+        <Label Content="File output options:" HorizontalAlignment="Left" Margin="90,176,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="musicOpusCheckBox" Content="opus (default)" HorizontalAlignment="Left" Margin="212,78,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="musicAACCheckBox" Content="AAC" HorizontalAlignment="Left" Margin="212,118,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="musicMp3CheckBox" Content="mp3" HorizontalAlignment="Left" Margin="212,98,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="videoMkvCheckBox" Content="mkv (default)" HorizontalAlignment="Left" Margin="212,182,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="videoAviCheckBox" Content="avi" HorizontalAlignment="Left" Margin="212,222,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="videoMp4CheckBox" Content="mp4" HorizontalAlignment="Left" Margin="212,202,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+
+    </Grid>
+</Window>
