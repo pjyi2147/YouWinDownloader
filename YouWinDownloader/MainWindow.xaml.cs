@@ -149,9 +149,14 @@ namespace YouWinDownloader
         // unchecked
         private void musicCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            // unable checkboxes
             musicAACCheckBox.IsEnabled = false;
             musicMp3CheckBox.IsEnabled = false;
             musicOpusCheckBox.IsEnabled = false;
+            // uncheck them
+            musicAACCheckBox.IsChecked = false;
+            musicMp3CheckBox.IsChecked = false;
+            musicOpusCheckBox.IsChecked = false;
         }
 
         // video Check Box 
@@ -170,9 +175,14 @@ namespace YouWinDownloader
         // unchecked
         private void videoCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            // unable checkboxes
             videoAviCheckBox.IsEnabled = false;
             videoMkvCheckBox.IsEnabled = false;
             videoMp4CheckBox.IsEnabled = false;
+            // no checks
+            videoAviCheckBox.IsChecked = false;
+            videoMkvCheckBox.IsChecked = false;
+            videoMp4CheckBox.IsChecked = false;
         }
 
         // OpenfolderBtn

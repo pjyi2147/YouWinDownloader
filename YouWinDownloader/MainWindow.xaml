@@ -24,12 +24,12 @@
         <Button x:Name="clearBtn" Content="Clear" HorizontalAlignment="Left" Margin="420,21,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="clearBtn_Click"/>
         <Label Content="File output options:" HorizontalAlignment="Left" Margin="90,72,0,0" VerticalAlignment="Top" Height="27"/>
         <Label Content="File output options:" HorizontalAlignment="Left" Margin="90,176,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="musicOpusCheckBox" Content="opus (default)" HorizontalAlignment="Left" Margin="212,78,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <CheckBox x:Name="musicAACCheckBox" Content="AAC" HorizontalAlignment="Left" Margin="212,118,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <CheckBox x:Name="musicMp3CheckBox" Content="mp3" HorizontalAlignment="Left" Margin="212,98,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <CheckBox x:Name="videoMkvCheckBox" Content="mkv (default)" HorizontalAlignment="Left" Margin="212,182,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="musicOpusCheckBox" Content="opus (recommended)" HorizontalAlignment="Left" Margin="212,98,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="musicAACCheckBox" Content="m4a (AAC)" HorizontalAlignment="Left" Margin="212,118,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="musicMp3CheckBox" Content="mp3 (default)" HorizontalAlignment="Left" Margin="212,78,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="videoMkvCheckBox" Content="mkv (recommended)" HorizontalAlignment="Left" Margin="212,202,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <CheckBox x:Name="videoAviCheckBox" Content="avi" HorizontalAlignment="Left" Margin="212,222,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <CheckBox x:Name="videoMp4CheckBox" Content="mp4" HorizontalAlignment="Left" Margin="212,202,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="videoMp4CheckBox" Content="mp4 (default)" HorizontalAlignment="Left" Margin="212,182,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBox x:Name="CMDoutputTextBox" HorizontalAlignment="Left" Height="23" Margin="21,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473" IsEnabled="False"/>
 
     </Grid>
