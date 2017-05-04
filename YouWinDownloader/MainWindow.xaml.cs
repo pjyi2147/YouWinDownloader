@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +22,82 @@ namespace YouWinDownloader
     /// </summary>
     public partial class MainWindow : Window
     {
+        // backgroundworker variables
+        BackgroundWorker downloadWorker;
+
         public MainWindow()
         {
             InitializeComponent();
+            downloadWorker = new BackgroundWorker();
+            downloadWorker.DoWork += new DoWorkEventHandler(downloadWorker_DoWork);
+            downloadWorker.ProgressChanged += new ProgressChangedEventHandler(downloadWorker_ProgressChanged);
+            downloadWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(downloadWorker_RunWorkerCompleted);
+            downloadWorker.WorkerReportsProgress = true;
+            downloadWorker.WorkerSupportsCancellation = true;
         }
 
+        private void downloadWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            Process process = new Process();
+            string scriptText = e.Argument.ToString();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            process.StartInfo.Arguments = "/C set path=%path%;" + System.AppDomain.CurrentDomain.BaseDirectory + "&" + scriptText;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardInput = true;
+            process.StartInfo.RedirectStandardError = true;
+
+            process.Start();
+
+            while (!process.StandardOutput.EndOfStream)
+            {
+                if (downloadWorker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                else
+                {
+                    string line = process.StandardOutput.ReadLine();
+                    worker.ReportProgress(1, line);
+                }
+            }
+        }
+
+        private void downloadWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            CMDoutputTextBox.Text = e.UserState.ToString();
+            downloadBtn.Content = "Abort";
+        }
+        
+        private void downloadWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (downloadWorker.CancellationPending == true)
+            {
+                // do nothing
+            }
+            else if (musicCheckBox.IsChecked == true)
+            {
+                MessageBox.Show("Music Download finished.", "Successful");
+            }
+            else if (videoCheckBox.IsChecked == true) 
+            {
+                MessageBox.Show("Video Download finished.", "Successful");
+            }
+            downloadBtn.Content = "Download!";
+        }
+
+        // urlTextBox methods
+        // GotFocus
         private void urlTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             urlTextBox.Text = "";
         }
 
+        // Lost focus
         private void urlTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (urlTextBox.Text == "")
@@ -38,7 +106,7 @@ namespace YouWinDownloader
             }
         }
 
-
+        // ValidateBtn methods
         // validate button cilck (Update needed)
         private void validateBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +123,8 @@ namespace YouWinDownloader
             }
         }
 
+        // urlTextBox methods
+        // key input from urlTextBox
         private void urlTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -63,9 +133,8 @@ namespace YouWinDownloader
             }
         }
 
-
-        // button checker functions
-        // music Check Box
+        // music Check Box methods
+        // checked
         private void musicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if (videoCheckBox.IsChecked == true)
@@ -77,6 +146,7 @@ namespace YouWinDownloader
             musicOpusCheckBox.IsEnabled = true;
         }
 
+        // unchecked
         private void musicCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             musicAACCheckBox.IsEnabled = false;
@@ -84,7 +154,8 @@ namespace YouWinDownloader
             musicOpusCheckBox.IsEnabled = false;
         }
 
-        // video Check Box
+        // video Check Box 
+        // checked
         private void videoCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if (musicCheckBox.IsChecked == true)
@@ -96,6 +167,7 @@ namespace YouWinDownloader
             videoMp4CheckBox.IsEnabled = true;
         }
 
+        // unchecked
         private void videoCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             videoAviCheckBox.IsEnabled = false;
@@ -103,7 +175,7 @@ namespace YouWinDownloader
             videoMp4CheckBox.IsEnabled = false;
         }
 
-
+        // OpenfolderBtn
         // folder opening
         private void openFolderBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -122,11 +194,13 @@ namespace YouWinDownloader
             }
         }
 
-
-        // clear button
+        // ClearBtn method
+        // Click
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
             urlTextBox.Text = "";
+            fileLocationLabel.Text = "";
+            CMDoutputTextBox.Text = "";
 
             musicAACCheckBox.IsChecked = false;
             musicMp3CheckBox.IsChecked = false;
@@ -141,6 +215,38 @@ namespace YouWinDownloader
             videoCheckBox.IsEnabled = false;
             openFolderBtn.IsEnabled = false;
             downloadBtn.IsEnabled = false;
+        }
+
+        // downloadBtn methods
+        // Click
+        private void downloadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (downloadWorker.IsBusy)
+            {
+                downloadWorker.CancelAsync();
+                MessageBox.Show("Download Aborted!", "Abort");
+                clearBtn_Click(sender, e);
+            }
+            else
+            {
+                string scriptText = "cd " + fileLocationLabel.Text.ToString() + "&" + "youtube-dl " + urlTextBox.Text.ToString();
+                MessageBox.Show("Download Started!", "Started");
+                // a function for other stuff should be made here
+                // then this if statement for music also be moved to there.
+                if (musicCheckBox.IsChecked == true)
+                {
+                    scriptText += " -x";
+                }
+
+                if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
+                {
+                    downloadWorker.RunWorkerAsync(scriptText);
+                }
+                else
+                {
+                    MessageBox.Show("Please choose one of the options", "Error");
+                }
+            }
         }
     }
 }
