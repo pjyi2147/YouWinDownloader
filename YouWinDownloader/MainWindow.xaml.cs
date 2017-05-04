@@ -24,10 +24,13 @@ namespace YouWinDownloader
     {
         // backgroundworker variables
         BackgroundWorker downloadWorker;
-
+        
+        // Main Window
         public MainWindow()
         {
             InitializeComponent();
+
+            // Backgroundworker init
             downloadWorker = new BackgroundWorker();
             downloadWorker.DoWork += new DoWorkEventHandler(downloadWorker_DoWork);
             downloadWorker.ProgressChanged += new ProgressChangedEventHandler(downloadWorker_ProgressChanged);
@@ -36,6 +39,7 @@ namespace YouWinDownloader
             downloadWorker.WorkerSupportsCancellation = true;
         }
 
+        // Do Work!
         private void downloadWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
@@ -67,12 +71,14 @@ namespace YouWinDownloader
             }
         }
 
+        // Progress changed!
         private void downloadWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             CMDoutputTextBox.Text = e.UserState.ToString();
             downloadBtn.Content = "Abort";
         }
         
+        // Finished!
         private void downloadWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (downloadWorker.CancellationPending == true)
@@ -106,6 +112,15 @@ namespace YouWinDownloader
             }
         }
 
+        // key input from urlTextBox
+        private void urlTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                validateBtn_Click(sender, e);
+            }
+        }
+
         // ValidateBtn methods
         // validate button cilck (Update needed)
         private void validateBtn_Click(object sender, RoutedEventArgs e)
@@ -122,17 +137,7 @@ namespace YouWinDownloader
                 MessageBox.Show("Invaild format: Try Again", "Error");
             }
         }
-
-        // urlTextBox methods
-        // key input from urlTextBox
-        private void urlTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                validateBtn_Click(sender, e);
-            }
-        }
-
+        
         // music Check Box methods
         // checked
         private void musicCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -141,22 +146,22 @@ namespace YouWinDownloader
             {
                 videoCheckBox.IsChecked = false;
             }
-            musicAACCheckBox.IsEnabled = true;
-            musicMp3CheckBox.IsEnabled = true;
-            musicOpusCheckBox.IsEnabled = true;
+            musicAACRadioButton.IsEnabled = true;
+            musicMp3RadioButton.IsEnabled = true;
+            musicOpusRadioButton.IsEnabled = true;
         }
 
         // unchecked
         private void musicCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             // unable checkboxes
-            musicAACCheckBox.IsEnabled = false;
-            musicMp3CheckBox.IsEnabled = false;
-            musicOpusCheckBox.IsEnabled = false;
+            musicAACRadioButton.IsEnabled = false;
+            musicMp3RadioButton.IsEnabled = false;
+            musicOpusRadioButton.IsEnabled = false;
             // uncheck them
-            musicAACCheckBox.IsChecked = false;
-            musicMp3CheckBox.IsChecked = false;
-            musicOpusCheckBox.IsChecked = false;
+            musicAACRadioButton.IsChecked = false;
+            musicMp3RadioButton.IsChecked = false;
+            musicOpusRadioButton.IsChecked = false;
         }
 
         // video Check Box 
@@ -167,22 +172,22 @@ namespace YouWinDownloader
             {
                 musicCheckBox.IsChecked = false;
             }
-            videoAviCheckBox.IsEnabled = true;
-            videoMkvCheckBox.IsEnabled = true;
-            videoMp4CheckBox.IsEnabled = true;
+            videoAviRadioButton.IsEnabled = true;
+            videoMkvRadioButton.IsEnabled = true;
+            videoMp4RadioButton.IsEnabled = true;
         }
 
         // unchecked
         private void videoCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             // unable checkboxes
-            videoAviCheckBox.IsEnabled = false;
-            videoMkvCheckBox.IsEnabled = false;
-            videoMp4CheckBox.IsEnabled = false;
+            videoAviRadioButton.IsEnabled = false;
+            videoMkvRadioButton.IsEnabled = false;
+            videoMp4RadioButton.IsEnabled = false;
             // no checks
-            videoAviCheckBox.IsChecked = false;
-            videoMkvCheckBox.IsChecked = false;
-            videoMp4CheckBox.IsChecked = false;
+            videoAviRadioButton.IsChecked = false;
+            videoMkvRadioButton.IsChecked = false;
+            videoMp4RadioButton.IsChecked = false;
         }
 
         // OpenfolderBtn
@@ -212,12 +217,12 @@ namespace YouWinDownloader
             fileLocationLabel.Text = "";
             CMDoutputTextBox.Text = "";
 
-            musicAACCheckBox.IsChecked = false;
-            musicMp3CheckBox.IsChecked = false;
-            musicOpusCheckBox.IsChecked = false;
-            videoAviCheckBox.IsChecked = false;
-            videoMkvCheckBox.IsChecked = false;
-            videoMp4CheckBox.IsChecked = false;
+            musicAACRadioButton.IsChecked = false;
+            musicMp3RadioButton.IsChecked = false;
+            musicOpusRadioButton.IsChecked = false;
+            videoAviRadioButton.IsChecked = false;
+            videoMkvRadioButton.IsChecked = false;
+            videoMp4RadioButton.IsChecked = false;
             musicCheckBox.IsChecked = false;
             videoCheckBox.IsChecked = false;
 
