@@ -76,6 +76,7 @@ namespace YouWinDownloader
         {
             CMDoutputTextBox.Text = e.UserState.ToString();
             downloadBtn.Content = "Abort";
+            downloadBtn.IsEnabled = false;
         }
         
         // Finished!
@@ -94,6 +95,7 @@ namespace YouWinDownloader
                 MessageBox.Show("Video Download finished.", "Successful");
             }
             downloadBtn.Content = "Download!";
+            downloadBtn.IsEnabled = true;
         }
 
         // urlTextBox methods
@@ -175,6 +177,7 @@ namespace YouWinDownloader
             videoAviRadioButton.IsEnabled = true;
             videoMkvRadioButton.IsEnabled = true;
             videoMp4RadioButton.IsEnabled = true;
+            videoWebmRadioButton.IsEnabled = true;
         }
 
         // unchecked
@@ -184,10 +187,12 @@ namespace YouWinDownloader
             videoAviRadioButton.IsEnabled = false;
             videoMkvRadioButton.IsEnabled = false;
             videoMp4RadioButton.IsEnabled = false;
-            // no checks
+            videoWebmRadioButton.IsEnabled = false;
+           // no checks
             videoAviRadioButton.IsChecked = false;
             videoMkvRadioButton.IsChecked = false;
             videoMp4RadioButton.IsChecked = false;
+            videoWebmRadioButton.IsChecked = false;
         }
 
         // OpenfolderBtn
@@ -255,7 +260,8 @@ namespace YouWinDownloader
 
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
-                    downloadWorker.RunWorkerAsync(scriptText);
+                    downloadWorker.RunWorkerAsync
+                        (scriptText);
                 }
                 else
                 {
