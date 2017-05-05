@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:YouWinDownloader"
         mc:Ignorable="d"
         Title="YouWindownloader" Height="508" Width="525">
-    <Grid>
+    <Grid Margin="0,1,0,-1">
         <Label x:Name="urlLabel" Content="url:" HorizontalAlignment="Left" Margin="21,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.923,-1.154" Height="23"/>
         <TextBox x:Name="urlTextBox" HorizontalAlignment="Left" Height="23" Margin="48,21,0,0" TextWrapping="Wrap" Text="Full url including http://" VerticalAlignment="Top" Width="287" GotFocus="urlTextBox_GotFocus" LostFocus="urlTextBox_LostFocus" KeyDown="urlTextBox_KeyDown"/>
         <Button x:Name="validateBtn" Content="Validate!" HorizontalAlignment="Left" Margin="340,21,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="validateBtn_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="473" Margin="21,71,0,0">
             <CheckBox x:Name="musicCheckBox" Content="Music&#xD;&#xA;" IsEnabled="False" Checked="musicCheckBox_Checked" Unchecked="musicCheckBox_Unchecked"/>
         </Border>
-        <Label x:Name="optionLabel" Content="Available Options:" HorizontalAlignment="Left" Margin="21,44,0,0" VerticalAlignment="Top" Height="23"/>
+        <Label x:Name="optionLabel" Content="Available Options:" HorizontalAlignment="Left" Margin="21,43,0,0" VerticalAlignment="Top" Height="29"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="21,176,0,0" VerticalAlignment="Top" Width="473">
             <CheckBox x:Name="videoCheckBox" Content="Video&#xD;&#xA;" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked"/>
         </Border>
