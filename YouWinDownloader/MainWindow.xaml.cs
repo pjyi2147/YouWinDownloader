@@ -290,6 +290,8 @@ namespace YouWinDownloader
 
         }
 
+        // ScriptOptionValidator
+        // Sees the user's option and makes the script to download the exact video
         private string ScriptOptionVaildator()
         {
             string scriptText = "youtube-dl " + urlTextBox.Text.ToString();
