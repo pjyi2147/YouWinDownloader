@@ -264,17 +264,13 @@ namespace YouWinDownloader
                 string[] scripts = new string[2];
 
                 // string scriptText = "cd " + fileLocationLabel.Text.ToString() + "&" + "youtube-dl " + urlTextBox.Text.ToString();
-                string scriptText = "youtube-dl " + urlTextBox.Text.ToString();
+                string scriptText = ScriptOptionVaildator();
 
                 scripts[0] = fileLocationLabel.Text.ToString();
                 scripts[1] = scriptText;
                 // a function for other stuff should be made here
                 // then this if statement for music also be moved to there.
-                if (musicCheckBox.IsChecked == true)
-                {
-                    scriptText += " -x";
-                }
-
+                
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
                     MessageBox.Show("Download Started!", "Started");
@@ -291,13 +287,39 @@ namespace YouWinDownloader
         // but needed functions
 
         // url vaildator
-        private void UrlVaildator()
+        private void UrlVaildator(string url)
         {
 
         }
 
-        private string OptionVaildator(string scriptText)
+        private string ScriptOptionVaildator()
         {
+            string scriptText = "youtube-dl " + urlTextBox.Text.ToString();
+
+            if (musicCheckBox.IsChecked == true)
+            {
+                scriptText += " -x";
+            }
+            else if (videoCheckBox.IsChecked == true)
+            {
+                if (videoMkvRadioButton.IsChecked == true)
+                {
+                    scriptText += " --recode-video mkv";
+                }
+                else if (videoMp4RadioButton.IsChecked == true)
+                {
+                    scriptText += " --recode-video mp4";
+                }
+                else if (videoWebmRadioButton.IsChecked == true)
+                {
+                    scriptText += " --recode-video webm";
+                }
+                else if (videoAviRadioButton.IsChecked == true)
+                {
+                    scriptText += " --recode-video avi";
+                }
+            }
+
             return scriptText;
         }
     }
