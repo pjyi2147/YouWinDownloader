@@ -268,9 +268,7 @@ namespace YouWinDownloader
 
                 scripts[0] = fileLocationLabel.Text.ToString();
                 scripts[1] = scriptText;
-                // a function for other stuff should be made here
-                // then this if statement for music also be moved to there.
-                
+
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
                     MessageBox.Show("Download Started!", "Started");
