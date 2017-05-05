@@ -1,5 +1,24 @@
 # Change Log
 
+## [0.1.0](https://github.com/yjs990427/YouWinDownloader/tree/0.1.0) (2017-05-05)
+[Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/0.0.1...0.1.0)
+
+**Implemented enhancements:**
+
+- 32 bit support  [\#6](https://github.com/yjs990427/YouWinDownloader/issues/6)
+- Install program with ffmpeg and youtube-dl and make it work without dealing with PATH variable [\#3](https://github.com/yjs990427/YouWinDownloader/issues/3)
+- Windows 7 support [\#2](https://github.com/yjs990427/YouWinDownloader/issues/2)
+
+**Fixed bugs:**
+
+- 32 bit support  [\#6](https://github.com/yjs990427/YouWinDownloader/issues/6)
+- Install program with ffmpeg and youtube-dl and make it work without dealing with PATH variable [\#3](https://github.com/yjs990427/YouWinDownloader/issues/3)
+- Windows 7 support [\#2](https://github.com/yjs990427/YouWinDownloader/issues/2)
+
+**Merged pull requests:**
+
+- 0.1.0 Installer & few fixes [\#12](https://github.com/yjs990427/YouWinDownloader/pull/12) ([yjs990427](https://github.com/yjs990427))
+
 ## [0.0.1](https://github.com/yjs990427/YouWinDownloader/tree/0.0.1) (2017-05-02)
 [Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/0.0.0...0.0.1)
 
