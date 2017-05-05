@@ -106,6 +106,7 @@ namespace YouWinDownloader
             {
                 MessageBox.Show("Video Download finished.", "Successful");
             }
+            CMDoutputTextBox.Text = "";
             downloadBtn.Content = "Download!";
             downloadBtn.IsEnabled = true;
         }
