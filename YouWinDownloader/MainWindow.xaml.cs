@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Management;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +48,7 @@ namespace YouWinDownloader
             Process process = new Process();
             string scriptText = e.Argument.ToString();
             process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            // process.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
             process.StartInfo.Arguments = "/C set path=%path%;" + System.AppDomain.CurrentDomain.BaseDirectory + "&" + scriptText;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.UseShellExecute = false;
@@ -82,9 +84,9 @@ namespace YouWinDownloader
         // Finished!
         private void downloadWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (downloadWorker.CancellationPending == true)
+            if (e.Cancelled)
             {
-                // do nothing
+                MessageBox.Show("Download Aborted!", "Abort");
             }
             else if (musicCheckBox.IsChecked == true)
             {
@@ -244,13 +246,13 @@ namespace YouWinDownloader
             if (downloadWorker.IsBusy)
             {
                 downloadWorker.CancelAsync();
-                MessageBox.Show("Download Aborted!", "Abort");
+                // MessageBox.Show("Download Aborted!", "Abort");
                 clearBtn_Click(sender, e);
             }
             else
             {
                 string scriptText = "cd " + fileLocationLabel.Text.ToString() + "&" + "youtube-dl " + urlTextBox.Text.ToString();
-                MessageBox.Show("Download Started!", "Started");
+
                 // a function for other stuff should be made here
                 // then this if statement for music also be moved to there.
                 if (musicCheckBox.IsChecked == true)
@@ -260,8 +262,8 @@ namespace YouWinDownloader
 
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
-                    downloadWorker.RunWorkerAsync
-                        (scriptText);
+                    MessageBox.Show("Download Started!", "Started");
+                    downloadWorker.RunWorkerAsync(scriptText);
                 }
                 else
                 {
