@@ -65,6 +65,14 @@ namespace YouWinDownloader
             {
                 if (downloadWorker.CancellationPending)
                 {
+                    foreach (var youtube in Process.GetProcessesByName("youtube-dl"))
+                    {
+                        youtube.Kill();
+                    }
+                    foreach (var ffmpeg in Process.GetProcessesByName("ffmpeg"))
+                    {
+                        ffmpeg.Kill();
+                    }
                     e.Cancel = true;
                     return;
                 }
@@ -81,7 +89,6 @@ namespace YouWinDownloader
         {
             CMDoutputTextBox.Text = e.UserState.ToString();
             downloadBtn.Content = "Abort";
-            downloadBtn.IsEnabled = false;
         }
 
         // When finished (RunWorkerCompleted Method)
@@ -89,7 +96,7 @@ namespace YouWinDownloader
         {
             if (e.Cancelled)
             {
-                MessageBox.Show("Download Aborted!", "Abort");
+                MessageBox.Show("Download Aborted!\r\nYou might need to delete .part file manually in the download folder.", "Abort");
             }
             else if (musicCheckBox.IsChecked == true)
             {
@@ -250,7 +257,6 @@ namespace YouWinDownloader
             if (downloadWorker.IsBusy)
             {
                 downloadWorker.CancelAsync();
-                // MessageBox.Show("Download Aborted!", "Abort");
                 clearBtn_Click(sender, e);
             }
             else
