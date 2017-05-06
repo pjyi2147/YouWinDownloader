@@ -11,12 +11,12 @@
         <TextBox x:Name="urlTextBox" HorizontalAlignment="Left" Height="23" Margin="48,21,0,0" TextWrapping="Wrap" Text="Full url including http://" VerticalAlignment="Top" Width="287" GotFocus="urlTextBox_GotFocus" LostFocus="urlTextBox_LostFocus" KeyDown="urlTextBox_KeyDown"/>
         <Button x:Name="validateBtn" Content="Validate!" HorizontalAlignment="Left" Margin="340,21,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="validateBtn_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="473" Margin="21,71,0,0">
-            <CheckBox x:Name="musicCheckBox" Content="Music&#xD;&#xA;" IsEnabled="False" Checked="musicCheckBox_Checked" Unchecked="musicCheckBox_Unchecked"/>
         </Border>
+            
         <Label x:Name="optionLabel" Content="Available Options:" HorizontalAlignment="Left" Margin="21,43,0,0" VerticalAlignment="Top" Height="29"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="21,176,0,0" VerticalAlignment="Top" Width="473">
-            <CheckBox x:Name="videoCheckBox" Content="Video&#xD;&#xA;" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="148" Margin="21,176,0,0" VerticalAlignment="Top" Width="473">
         </Border>
+        
         <Label Content="Download location" HorizontalAlignment="Left" Margin="16,399,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="fileLocationLabel" HorizontalAlignment="Left" Height="23" Margin="21,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
         <Button x:Name="openFolderBtn" Content="Open..." HorizontalAlignment="Left" Margin="274,425,0,0" VerticalAlignment="Top" Width="56" Height="23" IsEnabled="False" Click="openFolderBtn_Click"/>
@@ -30,7 +30,8 @@
         <RadioButton x:Name="musicOpusRadioButton" Content=".opus (recommended)" HorizontalAlignment="Left" Margin="212,98,0,0" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoMp4RadioButton" Content=".mp4 (default)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,182,0,0" GroupName="videoOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoMkvRadioButton" Content=".mkv (recommended)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,202,0,0" GroupName="videoOptions" IsEnabled="False"/>
-        <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="41" Margin="21,281,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="473"/>
+        <CheckBox x:Name="videoCheckBox" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked" Content="Video" HorizontalAlignment="Left" Margin="21,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,0.533"/>
+        <CheckBox x:Name="musicCheckBox" IsEnabled="False" Checked="musicCheckBox_Checked" Unchecked="musicCheckBox_Unchecked" Content="Music" HorizontalAlignment="Left" Margin="21,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.708,1.2"/>
 
     </Grid>
 </Window>
