@@ -1,5 +1,24 @@
 # Change Log
 
+## [0.9.0](https://github.com/yjs990427/YouWinDownloader/tree/0.9.0) (2017-05-06)
+[Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/0.1.0...0.9.0)
+
+**Implemented enhancements:**
+
+- Icon needed [\#11](https://github.com/yjs990427/YouWinDownloader/issues/11)
+- Abort Function [\#10](https://github.com/yjs990427/YouWinDownloader/issues/10)
+- Check Box vaildator [\#7](https://github.com/yjs990427/YouWinDownloader/issues/7)
+
+**Fixed bugs:**
+
+- Abort Function [\#10](https://github.com/yjs990427/YouWinDownloader/issues/10)
+- Check Box vaildator [\#7](https://github.com/yjs990427/YouWinDownloader/issues/7)
+
+**Merged pull requests:**
+
+- 0.9.0 beta release [\#14](https://github.com/yjs990427/YouWinDownloader/pull/14) ([yjs990427](https://github.com/yjs990427))
+- Readme addition [\#13](https://github.com/yjs990427/YouWinDownloader/pull/13) ([yjs990427](https://github.com/yjs990427))
+
 ## [0.1.0](https://github.com/yjs990427/YouWinDownloader/tree/0.1.0) (2017-05-05)
 [Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/0.0.1...0.1.0)
 
