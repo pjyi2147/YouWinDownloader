@@ -276,7 +276,7 @@ namespace YouWinDownloader
 
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
-                    MessageBox.Show("Download Started!\r\nscriptText: " + scriptText, "Started");
+                    MessageBox.Show("Download Started!", "Started");
                     downloadWorker.RunWorkerAsync(scripts);
                 }
                 else
@@ -341,6 +341,7 @@ namespace YouWinDownloader
                     scriptText += " --recode-video avi";
                 }
             }
+            scriptText += " --hls-prefer-native";
             return scriptText;
         }
     }
