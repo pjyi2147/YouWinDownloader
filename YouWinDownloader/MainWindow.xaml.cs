@@ -193,8 +193,10 @@ namespace YouWinDownloader
             }
             videoMkvRadioButton.IsEnabled = true;
             videoMp4RadioButton.IsEnabled = true;
-            MessageBox.Show("If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power." +
-                "\r\nWhen it is finished, it will show up a messagebox that says it is finished. \r\nSo please allow upto an hour to finish or just abort and choose best file option.",
+            MessageBox.Show("If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power.\r\n\r\n" +
+                "When it is finished, it will show up a messagebox that says it is finished. \r\nSo please allow upto an hour to finish or just abort and choose best file option.\r\n\r\n" +
+                "For now, video download only supports bestvideo downloads. If you try to download 8K video, then this program will actually download 8K version.\r\n\r\n" +
+                "Update will be released soon!",
                 "Notice");
         }
 
@@ -248,6 +250,9 @@ namespace YouWinDownloader
             videoCheckBox.IsEnabled = false;
             openFolderBtn.IsEnabled = false;
             downloadBtn.IsEnabled = false;
+
+            urlTextBox.IsEnabled = true;
+            validateBtn.IsEnabled = true;
         }
 
         // downloadBtn methods
