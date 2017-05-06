@@ -191,10 +191,8 @@ namespace YouWinDownloader
             {
                 musicCheckBox.IsChecked = false;
             }
-            videoAviRadioButton.IsEnabled = true;
             videoMkvRadioButton.IsEnabled = true;
             videoMp4RadioButton.IsEnabled = true;
-            videoWebmRadioButton.IsEnabled = true;
             MessageBox.Show("If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power." +
                 "\r\nWhen it is finished, it will show up a messagebox that says it is finished. \r\nSo please allow upto an hour to finish or just abort and choose best file option.",
                 "Notice");
@@ -204,15 +202,11 @@ namespace YouWinDownloader
         private void videoCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             // unable checkboxes
-            videoAviRadioButton.IsEnabled = false;
             videoMkvRadioButton.IsEnabled = false;
             videoMp4RadioButton.IsEnabled = false;
-            videoWebmRadioButton.IsEnabled = false;
             // no checks
-            videoAviRadioButton.IsChecked = false;
             videoMkvRadioButton.IsChecked = false;
             videoMp4RadioButton.IsChecked = false;
-            videoWebmRadioButton.IsChecked = false;
         }
 
         // OpenfolderBtn
@@ -245,7 +239,6 @@ namespace YouWinDownloader
             musicAACRadioButton.IsChecked = false;
             musicMp3RadioButton.IsChecked = false;
             musicOpusRadioButton.IsChecked = false;
-            videoAviRadioButton.IsChecked = false;
             videoMkvRadioButton.IsChecked = false;
             videoMp4RadioButton.IsChecked = false;
             musicCheckBox.IsChecked = false;
@@ -333,14 +326,6 @@ namespace YouWinDownloader
                 else if (videoMp4RadioButton.IsChecked == true)
                 {
                     scriptText += " -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best --recode-video mp4";
-                }
-                else if (videoWebmRadioButton.IsChecked == true)
-                {
-                    scriptText += " -f bestvideo[ext=webm]+bestaudio[ext=opus]/bestvideo+bestaudio/best --recode-video webm";
-                }
-                else if (videoAviRadioButton.IsChecked == true)
-                {
-                    scriptText += " --recode-video avi";
                 }
             }
             scriptText += " --hls-prefer-native";
