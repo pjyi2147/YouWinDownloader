@@ -26,7 +26,7 @@ namespace YouWinDownloader
     {
         // backgroundworker variables
         BackgroundWorker downloadWorker;
-
+        
         // Main Window
         public MainWindow()
         {
@@ -38,7 +38,7 @@ namespace YouWinDownloader
             downloadWorker.ProgressChanged += new ProgressChangedEventHandler(downloadWorker_ProgressChanged);
             downloadWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(downloadWorker_RunWorkerCompleted);
             downloadWorker.WorkerReportsProgress = true;
-            downloadWorker.WorkerSupportsCancellation = true;
+            downloadWorker.WorkerSupportsCancellation = true;            
         }
 
         // BackgroundWorker Methods ///////////////////////////////////////////////////////////////////////////////////
@@ -308,19 +308,19 @@ namespace YouWinDownloader
                 scriptText += " -x";
                 if (musicAACRadioButton.IsChecked == true)
                 {
-                    scriptText += " --audio-format m4a";
+                    scriptText += " -f bestaudio[ext=m4a]/bestaudio/best --audio-format m4a";
                 }
                 else if (musicMp3RadioButton.IsChecked == true)
                 {
-                    scriptText += " --audio-format mp3";
+                    scriptText += " -f bestaudio[ext=mp3]/bestaudio/best --audio-format mp3";
                 }
                 else if (musicOpusRadioButton.IsChecked == true)
                 {
-                    scriptText += " --audio-format opus";
+                    scriptText += " -f bestaudio[ext=opus]/bestaudio/best --audio-format opus";
                 }
                 else
                 {
-                    scriptText += " --audio-format mp3";
+                    scriptText += " -f bestaudio[ext=mp3]/bestaudio/best --audio-format mp3";
                 }
                 scriptText += " 0";
             }
