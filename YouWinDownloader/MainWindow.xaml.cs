@@ -326,11 +326,11 @@ namespace YouWinDownloader
             {
                 if (videoMkvRadioButton.IsChecked == true)
                 {
-                    scriptText += " --recode-video mkv";
+                    scriptText += "-f bestvideo[webm]+bestaudio[opus]|best --recode-video mkv";
                 }
                 else if (videoMp4RadioButton.IsChecked == true)
                 {
-                    scriptText += " --recode-video mp4";
+                    scriptText += "-f bestvideo[mp4]+bestaudio[m4a]|best --recode-video mp4";
                 }
                 else if (videoWebmRadioButton.IsChecked == true)
                 {
