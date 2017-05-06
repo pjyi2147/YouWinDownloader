@@ -38,7 +38,7 @@ namespace YouWinDownloader
             downloadWorker.ProgressChanged += new ProgressChangedEventHandler(downloadWorker_ProgressChanged);
             downloadWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(downloadWorker_RunWorkerCompleted);
             downloadWorker.WorkerReportsProgress = true;
-            downloadWorker.WorkerSupportsCancellation = true;            
+            downloadWorker.WorkerSupportsCancellation = true;       
         }
 
         // BackgroundWorker Methods ///////////////////////////////////////////////////////////////////////////////////
