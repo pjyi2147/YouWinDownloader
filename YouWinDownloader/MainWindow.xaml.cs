@@ -38,17 +38,20 @@ namespace YouWinDownloader
             downloadWorker.ProgressChanged += new ProgressChangedEventHandler(downloadWorker_ProgressChanged);
             downloadWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(downloadWorker_RunWorkerCompleted);
             downloadWorker.WorkerReportsProgress = true;
-            downloadWorker.WorkerSupportsCancellation = true;
+            downloadWorker.WorkerSupportsCancellation = true;       
         }
 
-        // Do Work!
+        // BackgroundWorker Methods ///////////////////////////////////////////////////////////////////////////////////
+        // DoWork Method 
         private void downloadWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
             Process process = new Process();
-            string scriptText = e.Argument.ToString();
+            string[] scripts = (string[])e.Argument;
+            string scriptText = scripts[1];
+            string dir = scripts[0];
             process.StartInfo.FileName = "cmd.exe";
-            // process.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            process.StartInfo.WorkingDirectory = dir;
             process.StartInfo.Arguments = "/C set path=%path%;" + System.AppDomain.CurrentDomain.BaseDirectory + "&" + scriptText;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.UseShellExecute = false;
@@ -62,6 +65,14 @@ namespace YouWinDownloader
             {
                 if (downloadWorker.CancellationPending)
                 {
+                    foreach (var youtube in Process.GetProcessesByName("youtube-dl"))
+                    {
+                        youtube.Kill();
+                    }
+                    foreach (var ffmpeg in Process.GetProcessesByName("ffmpeg"))
+                    {
+                        ffmpeg.Kill();
+                    }
                     e.Cancel = true;
                     return;
                 }
@@ -73,33 +84,34 @@ namespace YouWinDownloader
             }
         }
 
-        // Progress changed!
+        // ProgressChanged Method
         private void downloadWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             CMDoutputTextBox.Text = e.UserState.ToString();
             downloadBtn.Content = "Abort";
-            downloadBtn.IsEnabled = false;
         }
-        
-        // Finished!
+
+        // When finished (RunWorkerCompleted Method)
         private void downloadWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled)
             {
-                MessageBox.Show("Download Aborted!", "Abort");
+                MessageBox.Show("Download Aborted!\r\nYou might need to delete .part file manually in the download folder.", "Abort");
             }
             else if (musicCheckBox.IsChecked == true)
             {
                 MessageBox.Show("Music Download finished.", "Successful");
             }
-            else if (videoCheckBox.IsChecked == true) 
+            else if (videoCheckBox.IsChecked == true)
             {
                 MessageBox.Show("Video Download finished.", "Successful");
             }
+            CMDoutputTextBox.Text = "";
             downloadBtn.Content = "Download!";
             downloadBtn.IsEnabled = true;
         }
-
+        
+        // Event Handlers //////////////////////////////////////////////////////////////////////////////////////////////
         // urlTextBox methods
         // GotFocus
         private void urlTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -135,13 +147,15 @@ namespace YouWinDownloader
                 openFolderBtn.IsEnabled = true;
                 musicCheckBox.IsEnabled = true;
                 videoCheckBox.IsEnabled = true;
+                urlTextBox.IsEnabled = false;
+                validateBtn.IsEnabled = false;
             }
             else
             {
                 MessageBox.Show("Invaild format: Try Again", "Error");
             }
         }
-        
+
         // music Check Box methods
         // checked
         private void musicCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -153,6 +167,7 @@ namespace YouWinDownloader
             musicAACRadioButton.IsEnabled = true;
             musicMp3RadioButton.IsEnabled = true;
             musicOpusRadioButton.IsEnabled = true;
+            MessageBox.Show("Music always downloads to the best quality possible.", "Notice");
         }
 
         // unchecked
@@ -176,25 +191,24 @@ namespace YouWinDownloader
             {
                 musicCheckBox.IsChecked = false;
             }
-            videoAviRadioButton.IsEnabled = true;
             videoMkvRadioButton.IsEnabled = true;
             videoMp4RadioButton.IsEnabled = true;
-            videoWebmRadioButton.IsEnabled = true;
+            MessageBox.Show("If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power.\r\n\r\n" +
+                "When it is finished, it will show up a messagebox that says it is finished. \r\nSo please allow upto an hour to finish or just abort and choose best file option.\r\n\r\n" +
+                "For now, video download only supports bestvideo downloads. If you try to download 8K video, then this program will actually download 8K version.\r\n\r\n" +
+                "Update will be released soon!",
+                "Notice");
         }
 
         // unchecked
         private void videoCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             // unable checkboxes
-            videoAviRadioButton.IsEnabled = false;
             videoMkvRadioButton.IsEnabled = false;
             videoMp4RadioButton.IsEnabled = false;
-            videoWebmRadioButton.IsEnabled = false;
-           // no checks
-            videoAviRadioButton.IsChecked = false;
+            // no checks
             videoMkvRadioButton.IsChecked = false;
             videoMp4RadioButton.IsChecked = false;
-            videoWebmRadioButton.IsChecked = false;
         }
 
         // OpenfolderBtn
@@ -227,7 +241,6 @@ namespace YouWinDownloader
             musicAACRadioButton.IsChecked = false;
             musicMp3RadioButton.IsChecked = false;
             musicOpusRadioButton.IsChecked = false;
-            videoAviRadioButton.IsChecked = false;
             videoMkvRadioButton.IsChecked = false;
             videoMp4RadioButton.IsChecked = false;
             musicCheckBox.IsChecked = false;
@@ -237,6 +250,9 @@ namespace YouWinDownloader
             videoCheckBox.IsEnabled = false;
             openFolderBtn.IsEnabled = false;
             downloadBtn.IsEnabled = false;
+
+            urlTextBox.IsEnabled = true;
+            validateBtn.IsEnabled = true;
         }
 
         // downloadBtn methods
@@ -246,30 +262,79 @@ namespace YouWinDownloader
             if (downloadWorker.IsBusy)
             {
                 downloadWorker.CancelAsync();
-                // MessageBox.Show("Download Aborted!", "Abort");
                 clearBtn_Click(sender, e);
             }
             else
             {
-                string scriptText = "cd " + fileLocationLabel.Text.ToString() + "&" + "youtube-dl " + urlTextBox.Text.ToString();
+                string[] scripts = new string[2];
 
-                // a function for other stuff should be made here
-                // then this if statement for music also be moved to there.
-                if (musicCheckBox.IsChecked == true)
-                {
-                    scriptText += " -x";
-                }
+                // string scriptText = "cd " + fileLocationLabel.Text.ToString() + "&" + "youtube-dl " + urlTextBox.Text.ToString();
+                string scriptText = ScriptOptionVaildator();
 
+                scripts[0] = fileLocationLabel.Text.ToString();
+                scripts[1] = scriptText;
+                // scriptTextBox.Text = scriptText;
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
                     MessageBox.Show("Download Started!", "Started");
-                    downloadWorker.RunWorkerAsync(scriptText);
+                    downloadWorker.RunWorkerAsync(scripts);
                 }
                 else
                 {
                     MessageBox.Show("Please choose one of the options", "Error");
                 }
             }
+        }
+        
+        // Other Functions ////////////////////////////////////////////////////////////////////////////////////////////
+        // but needed functions
+
+        // url vaildator
+        private void UrlVaildator(string url)
+        {
+
+        }
+
+        // ScriptOptionValidator
+        // Sees the user's option and makes the script to download the exact video
+        private string ScriptOptionVaildator()
+        {
+            string scriptText = "youtube-dl " + urlTextBox.Text.ToString();
+
+            if (musicCheckBox.IsChecked == true)
+            {
+                scriptText += " -x";
+                if (musicAACRadioButton.IsChecked == true)
+                {
+                    scriptText += " -f bestaudio[ext=m4a]/bestaudio/best --audio-format m4a";
+                }
+                else if (musicMp3RadioButton.IsChecked == true)
+                {
+                    scriptText += " -f bestaudio[ext=mp3]/bestaudio/best --audio-format mp3";
+                }
+                else if (musicOpusRadioButton.IsChecked == true)
+                {
+                    scriptText += " -f bestaudio[ext=opus]/bestaudio/best --audio-format opus";
+                }
+                else
+                {
+                    scriptText += " -f bestaudio[ext=mp3]/bestaudio/best --audio-format mp3";
+                }
+                scriptText += " 0";
+            }
+            else if (videoCheckBox.IsChecked == true)
+            {
+                if (videoMkvRadioButton.IsChecked == true)
+                {
+                    scriptText += " -f bestvideo[ext=webm]+bestaudio[ext=opus]/bestvideo+bestaudio/best --recode-video mkv";
+                }
+                else if (videoMp4RadioButton.IsChecked == true)
+                {
+                    scriptText += " -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best --recode-video mp4";
+                }
+            }
+            scriptText += " --hls-prefer-native";
+            return scriptText;
         }
     }
 }
