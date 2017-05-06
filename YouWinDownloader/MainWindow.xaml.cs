@@ -276,7 +276,7 @@ namespace YouWinDownloader
 
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
-                    MessageBox.Show("Download Started!", "Started");
+                    MessageBox.Show("Download Started!\r\nscriptText: " + scriptText, "Started");
                     downloadWorker.RunWorkerAsync(scripts);
                 }
                 else
@@ -326,15 +326,15 @@ namespace YouWinDownloader
             {
                 if (videoMkvRadioButton.IsChecked == true)
                 {
-                    scriptText += " -f bestvideo[webm]+bestaudio[opus]|best --recode-video mkv";
+                    scriptText += " -f bestvideo[ext=webm]+bestaudio[ext=opus]/bestvideo+bestaudio/best --recode-video mkv";
                 }
                 else if (videoMp4RadioButton.IsChecked == true)
                 {
-                    scriptText += " -f bestvideo[mp4]+bestaudio[m4a]|best --recode-video mp4";
+                    scriptText += " -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best --recode-video mp4";
                 }
                 else if (videoWebmRadioButton.IsChecked == true)
                 {
-                    scriptText += " -f bestvideo[webm]+bestaudio[opus]|best --recode-video webm";
+                    scriptText += " -f bestvideo[ext=webm]+bestaudio[ext=opus]/bestvideo+bestaudio/best --recode-video webm";
                 }
                 else if (videoAviRadioButton.IsChecked == true)
                 {
