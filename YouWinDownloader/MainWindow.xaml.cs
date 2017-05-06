@@ -147,6 +147,8 @@ namespace YouWinDownloader
                 openFolderBtn.IsEnabled = true;
                 musicCheckBox.IsEnabled = true;
                 videoCheckBox.IsEnabled = true;
+                urlTextBox.IsEnabled = false;
+                validateBtn.IsEnabled = false;
             }
             else
             {
