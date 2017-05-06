@@ -27,7 +27,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_32ECE8A390E74A2381FB2E011C71DF39"
+        "MsmKey" = "8:_2580B7116D1A4158A85EF14AF3B1F6B3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -46,13 +46,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_59A7425F13FEA0989B39F684CDE30CFA"
+        "OwnerKey" = "8:_2039C37001734ECEB8DEFE4A127E3A0B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2039C37001734ECEB8DEFE4A127E3A0B"
+        "OwnerKey" = "8:_59A7425F13FEA0989B39F684CDE30CFA"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -80,6 +80,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -104,6 +112,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -154,10 +170,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_32ECE8A390E74A2381FB2E011C71DF39"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2580B7116D1A4158A85EF14AF3B1F6B3"
             {
-            "SourcePath" = "8:D:\\download\\rocket (1).ico"
-            "TargetName" = "8:rocket (1).ico"
+            "SourcePath" = "8:C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\rocket.ico"
+            "TargetName" = "8:rocket.ico"
             "Tag" = "8:"
             "Folder" = "8:_34BF5F14E34141FC85C6147C18961077"
             "Condition" = "8:"
@@ -201,6 +217,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_59A7425F13FEA0989B39F684CDE30CFA"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -302,15 +323,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:YouWindownloader"
-        "ProductCode" = "8:{032EA88C-9397-484E-AD80-5AADDA5DA589}"
-        "PackageCode" = "8:{259DBCD8-1423-4F51-A21D-8445A419A24B}"
+        "ProductCode" = "8:{579DA7E9-EF8B-4980-8FDE-9AE26E671DBD}"
+        "PackageCode" = "8:{7416688B-AE84-460C-8D66-1C5E7C2049FE}"
         "UpgradeCode" = "8:{FB33113C-6150-43DC-85F8-D23F7D2A8EBB}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.0.5"
+        "ProductVersion" = "8:0.9.0"
         "Manufacturer" = "8:Patrick Yi"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -434,7 +455,7 @@
             "Target" = "8:_2039C37001734ECEB8DEFE4A127E3A0B"
             "Folder" = "8:_961E4100193641CDB3A7711144A8C6F5"
             "WorkingFolder" = "8:_34BF5F14E34141FC85C6147C18961077"
-            "Icon" = "8:_32ECE8A390E74A2381FB2E011C71DF39"
+            "Icon" = "8:_2580B7116D1A4158A85EF14AF3B1F6B3"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5783686C576B439FBA52747A5107EB0B"
@@ -448,7 +469,7 @@
             "Target" = "8:_2039C37001734ECEB8DEFE4A127E3A0B"
             "Folder" = "8:_34BF5F14E34141FC85C6147C18961077"
             "WorkingFolder" = "8:_34BF5F14E34141FC85C6147C18961077"
-            "Icon" = "8:_32ECE8A390E74A2381FB2E011C71DF39"
+            "Icon" = "8:_2580B7116D1A4158A85EF14AF3B1F6B3"
             "Feature" = "8:"
             }
         }
