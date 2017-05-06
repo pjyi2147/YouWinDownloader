@@ -32,6 +32,7 @@
         <RadioButton x:Name="videoMp4RadioButton" Content=".mp4 (default)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,182,0,0" GroupName="videoOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoAviRadioButton" Content=".avi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,222,0,0" GroupName="videoOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoMkvRadioButton" Content=".mkv (recommended)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,202,0,0" GroupName="videoOptions" IsEnabled="False"/>
+        <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="41" Margin="21,281,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="473"/>
 
     </Grid>
 </Window>
