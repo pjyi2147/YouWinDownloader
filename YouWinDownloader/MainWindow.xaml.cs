@@ -165,6 +165,7 @@ namespace YouWinDownloader
             musicAACRadioButton.IsEnabled = true;
             musicMp3RadioButton.IsEnabled = true;
             musicOpusRadioButton.IsEnabled = true;
+            MessageBox.Show("Music always downloads to the best quality possible.", "Notice");
         }
 
         // unchecked
@@ -192,6 +193,9 @@ namespace YouWinDownloader
             videoMkvRadioButton.IsEnabled = true;
             videoMp4RadioButton.IsEnabled = true;
             videoWebmRadioButton.IsEnabled = true;
+            MessageBox.Show("If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power." +
+                "\r\nWhen it is finished, it will show up a messagebox that says it is finished. \r\nSo please allow upto an hour to finish or just abort and choose best file option.",
+                "Notice");
         }
 
         // unchecked
@@ -300,6 +304,23 @@ namespace YouWinDownloader
             if (musicCheckBox.IsChecked == true)
             {
                 scriptText += " -x";
+                if (musicAACRadioButton.IsChecked == true)
+                {
+                    scriptText += " --audio-format m4a";
+                }
+                else if (musicMp3RadioButton.IsChecked == true)
+                {
+                    scriptText += " --audio-format mp3";
+                }
+                else if (musicOpusRadioButton.IsChecked == true)
+                {
+                    scriptText += " --audio-format opus";
+                }
+                else
+                {
+                    scriptText += " --audio-format mp3";
+                }
+                scriptText += " 0";
             }
             else if (videoCheckBox.IsChecked == true)
             {
@@ -320,7 +341,6 @@ namespace YouWinDownloader
                     scriptText += " --recode-video avi";
                 }
             }
-
             return scriptText;
         }
     }

@@ -32,7 +32,6 @@
         <RadioButton x:Name="videoMp4RadioButton" Content=".mp4 (default)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,182,0,0" GroupName="videoOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoAviRadioButton" Content=".avi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,222,0,0" GroupName="videoOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoMkvRadioButton" Content=".mkv (recommended)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,202,0,0" GroupName="videoOptions" IsEnabled="False"/>
-        <Label Content="If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power.&#xD;&#xA;When it is finished, it will show up a messagebox that says it is finished. So please wait. " HorizontalAlignment="Left" Margin="33,276,0,0" VerticalAlignment="Top" Height="31" Width="451" FontSize="8"/>
 
     </Grid>
 </Window>
