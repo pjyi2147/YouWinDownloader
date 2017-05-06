@@ -326,15 +326,15 @@ namespace YouWinDownloader
             {
                 if (videoMkvRadioButton.IsChecked == true)
                 {
-                    scriptText += "-f bestvideo[webm]+bestaudio[opus]|best --recode-video mkv";
+                    scriptText += " -f bestvideo[webm]+bestaudio[opus]|best --recode-video mkv";
                 }
                 else if (videoMp4RadioButton.IsChecked == true)
                 {
-                    scriptText += "-f bestvideo[mp4]+bestaudio[m4a]|best --recode-video mp4";
+                    scriptText += " -f bestvideo[mp4]+bestaudio[m4a]|best --recode-video mp4";
                 }
                 else if (videoWebmRadioButton.IsChecked == true)
                 {
-                    scriptText += " --recode-video webm";
+                    scriptText += " -f bestvideo[webm]+bestaudio[opus]|best --recode-video webm";
                 }
                 else if (videoAviRadioButton.IsChecked == true)
                 {
