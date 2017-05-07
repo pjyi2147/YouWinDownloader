@@ -38,8 +38,8 @@
         <RadioButton x:Name="videoFHDRadioButton" Content="FHD (1080p)" HorizontalAlignment="Left" Margin="340,240,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
         <RadioButton x:Name="video2KRadioButton" Content="2K (2048 x 1920)" HorizontalAlignment="Left" Margin="212,240,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
         <RadioButton x:Name="video4KRadioButton" Content="4K (3840 x 2160)" HorizontalAlignment="Left" Margin="90,240,0,0" VerticalAlignment="Top" IsEnabled="False" GroupName="Resolution"/>
-        <RadioButton x:Name="videoBestRadioButton" Content="Best Video" HorizontalAlignment="Left" Margin="314,260,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
-        <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="57" Margin="21,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473"/>
+        <RadioButton x:Name="videoBestRadioButton" Content="RadioButton" HorizontalAlignment="Left" Margin="314,260,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
+        <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="57" Margin="21,281,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="473" SpellCheck.IsEnabled="True"/>
 
     </Grid>
 </Window>

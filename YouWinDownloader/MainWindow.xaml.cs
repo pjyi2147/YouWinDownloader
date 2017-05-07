@@ -160,10 +160,13 @@ namespace YouWinDownloader
         // checked
         private void musicCheckBox_Checked(object sender, RoutedEventArgs e)
         {
+            // if video was checked
             if (videoCheckBox.IsChecked == true)
             {
+                // uncheck it!
                 videoCheckBox.IsChecked = false;
             }
+            // enable music buttons
             musicAACRadioButton.IsEnabled = true;
             musicMp3RadioButton.IsEnabled = true;
             musicOpusRadioButton.IsEnabled = true;
@@ -187,10 +190,13 @@ namespace YouWinDownloader
         // checked
         private void videoCheckBox_Checked(object sender, RoutedEventArgs e)
         {
+            // if music box was checked
             if (musicCheckBox.IsChecked == true)
             {
+                // uncheck it
                 musicCheckBox.IsChecked = false;
             }
+            // video button enablers
             videoMkvRadioButton.IsEnabled = true;
             videoMp4RadioButton.IsEnabled = true;
 
@@ -247,6 +253,7 @@ namespace YouWinDownloader
             fileLocationLabel.Text = "";
             CMDoutputTextBox.Text = "";
 
+            // reset all checks
             musicAACRadioButton.IsChecked = false;
             musicMp3RadioButton.IsChecked = false;
             musicOpusRadioButton.IsChecked = false;
@@ -255,6 +262,14 @@ namespace YouWinDownloader
             musicCheckBox.IsChecked = false;
             videoCheckBox.IsChecked = false;
 
+            video4KRadioButton.IsChecked = false;
+            video2KRadioButton.IsChecked = false;
+            videoFHDRadioButton.IsChecked = false;
+            videoHDRadioButton.IsChecked = false;
+            video480pRadioButton.IsChecked = false;
+            videoBestRadioButton.IsChecked = false;
+
+            // reset all enables
             musicCheckBox.IsEnabled = false;
             videoCheckBox.IsEnabled = false;
             openFolderBtn.IsEnabled = false;
@@ -267,6 +282,7 @@ namespace YouWinDownloader
             video480pRadioButton.IsEnabled = false;
             videoBestRadioButton.IsEnabled = false;
 
+            // make these two buttons work again
             urlTextBox.IsEnabled = true;
             validateBtn.IsEnabled = true;
         }
@@ -290,14 +306,19 @@ namespace YouWinDownloader
                 scripts[0] = fileLocationLabel.Text.ToString();
                 scripts[1] = scriptText;
                 scriptTextBox.Text = scriptText;
-                if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
+                if (musicCheckBox.IsChecked == true )
                 {
-                    MessageBox.Show("Download Started!", "Started");
+                    MessageBox.Show("Music Download Started!", "Started");
+                    downloadWorker.RunWorkerAsync(scripts);
+                }
+                else if (videoCheckBox.IsChecked == true)
+                {
+                    MessageBox.Show("Video Download Started!", "Started");
                     downloadWorker.RunWorkerAsync(scripts);
                 }
                 else
                 {
-                    MessageBox.Show("Please choose one of the options", "Error");
+                    MessageBox.Show("Please choose Video or Music.", "Error");
                 }
             }
         }
