@@ -193,6 +193,15 @@ namespace YouWinDownloader
             }
             videoMkvRadioButton.IsEnabled = true;
             videoMp4RadioButton.IsEnabled = true;
+
+            video4KRadioButton.IsEnabled = true;
+            video2KRadioButton.IsEnabled = true;
+            videoFHDRadioButton.IsEnabled = true;
+            videoHDRadioButton.IsEnabled = true;
+            video480pRadioButton.IsEnabled = true;
+            videoBestRadioButton.IsEnabled = true;
+
+
             MessageBox.Show("If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power.\r\n\r\n" +
                 "When it is finished, it will show up a messagebox that says it is finished. \r\nSo please allow upto an hour to finish or just abort and choose best file option.\r\n\r\n" +
                 "For now, video download only supports bestvideo downloads. If you try to download 8K video, then this program will actually download 8K version.\r\n\r\n" +
@@ -251,6 +260,13 @@ namespace YouWinDownloader
             openFolderBtn.IsEnabled = false;
             downloadBtn.IsEnabled = false;
 
+            video4KRadioButton.IsEnabled = false;
+            video2KRadioButton.IsEnabled = false;
+            videoFHDRadioButton.IsEnabled = false;
+            videoHDRadioButton.IsEnabled = false;
+            video480pRadioButton.IsEnabled = false;
+            videoBestRadioButton.IsEnabled = false;
+
             urlTextBox.IsEnabled = true;
             validateBtn.IsEnabled = true;
         }
@@ -273,7 +289,7 @@ namespace YouWinDownloader
 
                 scripts[0] = fileLocationLabel.Text.ToString();
                 scripts[1] = scriptText;
-                // scriptTextBox.Text = scriptText;
+                scriptTextBox.Text = scriptText;
                 if (musicCheckBox.IsChecked == true || videoCheckBox.IsChecked == true)
                 {
                     MessageBox.Show("Download Started!", "Started");
@@ -324,13 +340,52 @@ namespace YouWinDownloader
             }
             else if (videoCheckBox.IsChecked == true)
             {
+                string resolution = "";
+                if (video4KRadioButton.IsChecked == true)
+                {
+                    resolution = "[height=2160]";
+                }
+                else if (video2KRadioButton.IsChecked == true)
+                {
+                    resolution = "[height=1440]";
+                }
+                else if (videoFHDRadioButton.IsChecked == true)
+                {
+                    resolution = "[height=1080]";
+                }
+                else if (videoHDRadioButton.IsChecked == true)
+                {
+                    resolution = "[height=720]";
+                }
+                else if (video480pRadioButton.IsChecked == true)
+                {
+                    resolution = "[height<=480]";
+                }
+                
                 if (videoMkvRadioButton.IsChecked == true)
                 {
-                    scriptText += " -f bestvideo[ext=webm]+bestaudio[ext=opus]/bestvideo+bestaudio/best --recode-video mkv";
+                    
+                    if (!String.IsNullOrEmpty(resolution))
+                    {
+                        scriptText += " -f bestvideo" + resolution+ "[ext=webm]+bestaudio[ext = opus]/bestvideo" + resolution + "+bestaudio";
+                    }
+                    else
+                    {
+                        scriptText += " -f bestvideo[ext=webm]+bestaudio[ext=opus]/bestvideo+bestaudio/best";
+                    }
+                    scriptText += " --recode-video mkv";
                 }
                 else if (videoMp4RadioButton.IsChecked == true)
                 {
-                    scriptText += " -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best --recode-video mp4";
+                    if (!String.IsNullOrEmpty(resolution))
+                    {
+                        scriptText += " -f bestvideo" + resolution + "[ext=mp4]+bestaudio[ext=m4a]/bestvideo" + resolution + "+bestaudio";
+                    }
+                    else
+                    {
+                        scriptText += " -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best";
+                    }
+                    scriptText += " --recode-video mp4";
                 }
             }
             scriptText += " --hls-prefer-native";

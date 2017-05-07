@@ -12,11 +12,11 @@
         <Button x:Name="validateBtn" Content="Validate!" HorizontalAlignment="Left" Margin="340,21,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="validateBtn_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="473" Margin="21,71,0,0">
         </Border>
-            
+
         <Label x:Name="optionLabel" Content="Available Options:" HorizontalAlignment="Left" Margin="21,43,0,0" VerticalAlignment="Top" Height="29"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="21,176,0,0" VerticalAlignment="Top" Width="473">
         </Border>
-        
+
         <Label Content="Download location" HorizontalAlignment="Left" Margin="16,399,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="fileLocationLabel" HorizontalAlignment="Left" Height="23" Margin="21,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
         <Button x:Name="openFolderBtn" Content="Open..." HorizontalAlignment="Left" Margin="274,425,0,0" VerticalAlignment="Top" Width="56" Height="23" IsEnabled="False" Click="openFolderBtn_Click"/>
@@ -30,8 +30,16 @@
         <RadioButton x:Name="musicOpusRadioButton" Content=".opus (recommended)" HorizontalAlignment="Left" Margin="212,98,0,0" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoMp4RadioButton" Content=".mp4 (default)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,182,0,0" GroupName="videoOptions" IsEnabled="False"/>
         <RadioButton x:Name="videoMkvRadioButton" Content=".mkv (recommended)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="212,202,0,0" GroupName="videoOptions" IsEnabled="False"/>
-        <CheckBox x:Name="videoCheckBox" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked" Content="Video" HorizontalAlignment="Left" Margin="21,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,0.533"/>
+        <CheckBox x:Name="videoCheckBox" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked" Content="Video" HorizontalAlignment="Left" Margin="21,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <CheckBox x:Name="musicCheckBox" IsEnabled="False" Checked="musicCheckBox_Checked" Unchecked="musicCheckBox_Unchecked" Content="Music" HorizontalAlignment="Left" Margin="21,71,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.708,1.2"/>
+        <Label Content="Resolution:" HorizontalAlignment="Left" Margin="90,216,0,0" VerticalAlignment="Top" Height="24"/>
+        <RadioButton x:Name="videoHDRadioButton" Content="HD (720p)" HorizontalAlignment="Left" Margin="90,260,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
+        <RadioButton x:Name="video480pRadioButton" Content="480p or lower" HorizontalAlignment="Left" Margin="196,260,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.93,1.4" IsEnabled="False" GroupName="Resolution"/>
+        <RadioButton x:Name="videoFHDRadioButton" Content="FHD (1080p)" HorizontalAlignment="Left" Margin="340,240,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
+        <RadioButton x:Name="video2KRadioButton" Content="2K (2048 x 1920)" HorizontalAlignment="Left" Margin="212,240,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
+        <RadioButton x:Name="video4KRadioButton" Content="4K (3840 x 2160)" HorizontalAlignment="Left" Margin="90,240,0,0" VerticalAlignment="Top" IsEnabled="False" GroupName="Resolution"/>
+        <RadioButton x:Name="videoBestRadioButton" Content="Best Video" HorizontalAlignment="Left" Margin="314,260,0,0" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
+        <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="57" Margin="21,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="473"/>
 
     </Grid>
 </Window>
