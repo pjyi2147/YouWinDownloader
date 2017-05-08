@@ -167,6 +167,7 @@ namespace YouWinDownloader
                 videoCheckBox.IsChecked = false;
             }
             // enable music buttons
+            addMetadataCheckBox.IsEnabled = true;
             musicAACRadioButton.IsEnabled = true;
             musicMp3RadioButton.IsEnabled = true;
             musicOpusRadioButton.IsEnabled = true;
@@ -208,7 +209,7 @@ namespace YouWinDownloader
             videoBestRadioButton.IsEnabled = true;
 
 
-            MessageBox.Show("If you choose .avi or .webm as the video format, it may take time depending on video size and your computer power.\r\n\r\n" +
+            MessageBox.Show("If you choose to download video, it may take time depending on video size and your computer power.\r\n\r\n" +
                 "When it is finished, it will show up a messagebox that says it is finished. \r\nSo please allow upto an hour to finish or just abort and choose best file option.\r\n\r\n" +
                 "For now, video download only supports bestvideo downloads. If you try to download 8K video, then this program will actually download 8K version.\r\n\r\n" +
                 "Update will be released soon!",
@@ -322,7 +323,20 @@ namespace YouWinDownloader
                 }
             }
         }
-        
+
+        // metadata Check Box event Handlers
+        // Checked
+        private void addMetadataCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            metadataString.IsEnabled = true;
+        }
+
+        // Unchecked
+        private void addMetadataCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            metadataString.IsEnabled = false;
+        }
+
         // Other Functions ////////////////////////////////////////////////////////////////////////////////////////////
         // but needed functions
 
