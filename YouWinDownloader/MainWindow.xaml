@@ -53,7 +53,8 @@
         <GroupBox Header="Metadata" HorizontalAlignment="Left" Height="88" Margin="221,62,0,0" VerticalAlignment="Top" Width="301">
             <StackPanel HorizontalAlignment="Left" Height="67" Margin="0,0,-2,-1" VerticalAlignment="Top" Width="291">
                 <CheckBox x:Name="addMetadataCheckBox" Content="Add metadata" Margin="0,0,192,0" Checked="addMetadataCheckBox_Checked" Unchecked="addMetadataCheckBox_Unchecked" IsEnabled="False"/>
-                <TextBox x:Name="metadataString" Height="23" TextWrapping="Wrap" Text="%(title)s for title, %(artist)s for artist" IsEnabled="False"/>
+                <TextBox x:Name="metadataString" Height="23" TextWrapping="Wrap" Text="%(title)s for title, %(artist)s for artist" IsEnabled="False" LostFocus="metadataString_LostFocus" GotFocus="metadataString_GotFocus"/>
+                <TextBox Height="30" TextWrapping="Wrap" Text="For example,  Sia - Chandelier (Official Video) can be written as                 %(artist)s - %(title)s (Offcial Video)" IsReadOnly="True" FontSize="9" IsEnabled="False"/>
             </StackPanel>
         </GroupBox>
 

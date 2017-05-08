@@ -270,6 +270,8 @@ namespace YouWinDownloader
             video480pRadioButton.IsChecked = false;
             videoBestRadioButton.IsChecked = false;
 
+            addMetadataCheckBox.IsChecked = false;
+
             // reset all enables
             musicCheckBox.IsEnabled = false;
             videoCheckBox.IsEnabled = false;
@@ -283,6 +285,7 @@ namespace YouWinDownloader
             video480pRadioButton.IsEnabled = false;
             videoBestRadioButton.IsEnabled = false;
 
+            addMetadataCheckBox.IsEnabled = false;
             // make these two buttons work again
             urlTextBox.IsEnabled = true;
             validateBtn.IsEnabled = true;
@@ -335,6 +338,19 @@ namespace YouWinDownloader
         private void addMetadataCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             metadataString.IsEnabled = false;
+        }
+
+        // metadata Text Box event Handlers
+        // Got Focus
+        private void metadataString_GotFocus(object sender, RoutedEventArgs e)
+        {
+            metadataString.Text = "";
+        }
+
+        // Lost Focus
+        private void metadataString_LostFocus(object sender, RoutedEventArgs e)
+        {
+            metadataString.Text = "%(title)s for title, %(artist)s for artist";
         }
 
         // Other Functions ////////////////////////////////////////////////////////////////////////////////////////////
