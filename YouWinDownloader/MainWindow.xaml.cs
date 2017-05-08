@@ -350,7 +350,10 @@ namespace YouWinDownloader
         // Lost Focus
         private void metadataString_LostFocus(object sender, RoutedEventArgs e)
         {
-            metadataString.Text = "%(title)s for title, %(artist)s for artist";
+            if (metadataString.Text == "")
+            {
+                metadataString.Text = "%(title)s for title, %(artist)s for artist";
+            }
         }
 
         // Other Functions ////////////////////////////////////////////////////////////////////////////////////////////
@@ -371,6 +374,7 @@ namespace YouWinDownloader
             if (musicCheckBox.IsChecked == true)
             {
                 scriptText += " -x";
+                // ext format
                 if (musicAACRadioButton.IsChecked == true)
                 {
                     scriptText += " -f bestaudio[ext=m4a]/bestaudio/best --audio-format m4a";
@@ -388,6 +392,12 @@ namespace YouWinDownloader
                     scriptText += " -f bestaudio[ext=mp3]/bestaudio/best --audio-format mp3";
                 }
                 scriptText += " 0";
+
+                // metadata
+                if (addMetadataCheckBox.IsChecked == true)
+                {
+                    scriptText += " --add-metadata --metadata-from-title " + "\"" + metadataString.Text + "\"";
+                }
             }
             else if (videoCheckBox.IsChecked == true)
             {
