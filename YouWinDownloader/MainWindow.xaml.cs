@@ -418,7 +418,7 @@ namespace YouWinDownloader
                     
                     if (!String.IsNullOrEmpty(resolution))
                     {
-                        scriptText += " -f bestvideo" + resolution+ "[ext=webm]+bestaudio[ext = opus]/bestvideo" + resolution + "+bestaudio";
+                        scriptText += " -f bestvideo" + resolution+ "[ext=webm]+bestaudio[ext = opus]/bestvideo" + resolution + "+bestaudio/best" + resolution;
                     }
                     else
                     {
@@ -430,7 +430,7 @@ namespace YouWinDownloader
                 {
                     if (!String.IsNullOrEmpty(resolution))
                     {
-                        scriptText += " -f bestvideo" + resolution + "[ext=mp4]+bestaudio[ext=m4a]/bestvideo" + resolution + "+bestaudio";
+                        scriptText += " -f bestvideo" + resolution + "[ext=mp4]+bestaudio[ext=m4a]/bestvideo" + resolution + "+bestaudio/best" + resolution;
                     }
                     else
                     {
