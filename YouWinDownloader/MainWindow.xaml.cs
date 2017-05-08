@@ -167,7 +167,6 @@ namespace YouWinDownloader
                 videoCheckBox.IsChecked = false;
             }
             // enable music buttons
-            addMetadataCheckBox.IsEnabled = true;
             musicAACRadioButton.IsEnabled = true;
             musicMp3RadioButton.IsEnabled = true;
             musicOpusRadioButton.IsEnabled = true;
@@ -181,10 +180,12 @@ namespace YouWinDownloader
             musicAACRadioButton.IsEnabled = false;
             musicMp3RadioButton.IsEnabled = false;
             musicOpusRadioButton.IsEnabled = false;
+            addMetadataCheckBox.IsEnabled = false;
             // uncheck them
             musicAACRadioButton.IsChecked = false;
             musicMp3RadioButton.IsChecked = false;
             musicOpusRadioButton.IsChecked = false;
+            addMetadataCheckBox.IsChecked = false;
         }
 
         // video Check Box 
@@ -225,6 +226,13 @@ namespace YouWinDownloader
             // no checks
             videoMkvRadioButton.IsChecked = false;
             videoMp4RadioButton.IsChecked = false;
+
+            video4KRadioButton.IsEnabled = false;
+            video2KRadioButton.IsEnabled = false;
+            videoFHDRadioButton.IsEnabled = false;
+            videoHDRadioButton.IsEnabled = false;
+            video480pRadioButton.IsEnabled = false;
+            videoBestRadioButton.IsEnabled = false;
         }
 
         // OpenfolderBtn
@@ -356,6 +364,27 @@ namespace YouWinDownloader
             }
         }
 
+        // musicMp3RadioButton event handlers
+        private void musicMp3RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            addMetadataCheckBox.IsEnabled = true;
+        }
+
+        // musicopusRadioButton event handlers
+        private void musicOpusRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Opus format does not support music metadata.\r\nTherefore, it is not supported in this program.", "Notice");
+            addMetadataCheckBox.IsChecked = false;
+            addMetadataCheckBox.IsEnabled = false;
+            metadataString_LostFocus(sender, e);
+        }
+
+        // musicM4aRadioButton event handlers
+        private void musicAACRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            addMetadataCheckBox.IsEnabled = true;
+        }
+
         // Other Functions ////////////////////////////////////////////////////////////////////////////////////////////
         // but needed functions
 
@@ -448,7 +477,20 @@ namespace YouWinDownloader
                     }
                     scriptText += " --recode-video mp4";
                 }
+                else
+                {
+                    if (!String.IsNullOrEmpty(resolution))
+                    {
+                        scriptText += " -f bestvideo" + resolution + "[ext=mp4]+bestaudio[ext=m4a]/bestvideo" + resolution + "+bestaudio/best" + resolution;
+                    }
+                    else
+                    {
+                        scriptText += " -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best";
+                    }
+                    scriptText += " --recode-video mp4";
+                }
             }
+
             scriptText += " --hls-prefer-native";
             return scriptText;
         }

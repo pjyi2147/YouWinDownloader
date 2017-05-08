@@ -44,9 +44,9 @@
         </GroupBox>
         <GroupBox x:Name="musicExtensionGroupBox" Header="File extension" HorizontalAlignment="Left" Height="68" Margin="67,63,0,0" VerticalAlignment="Top" Width="149">
             <StackPanel x:Name="musicExtensionStackPanel" HorizontalAlignment="Left" Height="52" Margin="0,0,-2,0" VerticalAlignment="Top" Width="139">
-                <RadioButton x:Name="musicMp3RadioButton" Content=".mp3 (default)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False"/>
-                <RadioButton x:Name="musicOpusRadioButton" Content=".opus (recommended)" HorizontalAlignment="Left" Margin="0,0,-39,0" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False"/>
-                <RadioButton x:Name="musicAACRadioButton" Content=".m4a (AAC)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False"/>
+                <RadioButton x:Name="musicMp3RadioButton" Content=".mp3 (default)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False" Checked="musicMp3RadioButton_Checked"/>
+                <RadioButton x:Name="musicOpusRadioButton" Content=".opus (recommended)" HorizontalAlignment="Left" Margin="0,0,-39,0" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False" Checked="musicOpusRadioButton_Checked"/>
+                <RadioButton x:Name="musicAACRadioButton" Content=".m4a (AAC)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="musicOptions" IsEnabled="False" Checked="musicAACRadioButton_Checked"/>
             </StackPanel>
         </GroupBox>
         <Label Content="Download status" HorizontalAlignment="Left" Margin="10,387,0,0" VerticalAlignment="Top" Height="27"/>
