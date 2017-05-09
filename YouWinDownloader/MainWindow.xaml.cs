@@ -425,7 +425,8 @@ namespace YouWinDownloader
                 // metadata
                 if (addMetadataCheckBox.IsChecked == true)
                 {
-                    scriptText += " --add-metadata --metadata-from-title " + "\"" + metadataString.Text + "\"";
+                    scriptText += " --metadata-from-title " + "\"" + metadataString.Text + "\"";
+                    scriptText += " --add-metadata";
                 }
             }
             else if (videoCheckBox.IsChecked == true)
@@ -491,6 +492,15 @@ namespace YouWinDownloader
                 }
             }
 
+            // output selection
+            if (outputCheckBox.IsChecked == true)
+            {
+
+            }
+            else
+            {
+                scriptText += " -o \"%(title)s.%(ext)s\"";
+            }
             scriptText += " --hls-prefer-native";
             return scriptText;
         }
