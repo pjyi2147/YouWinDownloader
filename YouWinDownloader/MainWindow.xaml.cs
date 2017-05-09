@@ -189,7 +189,7 @@ namespace YouWinDownloader
             musicMp3RadioButton.IsChecked = false;
             musicOpusRadioButton.IsChecked = false;
             addMetadataCheckBox.IsChecked = false;
-            musicAddThumbnailCheckBox.IsChe = false;
+            musicAddThumbnailCheckBox.IsChecked = false;
         }
 
         // video Check Box 
