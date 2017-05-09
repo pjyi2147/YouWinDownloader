@@ -431,7 +431,7 @@ namespace YouWinDownloader
         private string ScriptOptionVaildator()
         {
             string scriptText = "youtube-dl " + urlTextBox.Text.ToString();
-
+            // music options
             if (musicCheckBox.IsChecked == true)
             {
                 scriptText += " -x";
