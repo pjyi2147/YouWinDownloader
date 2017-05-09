@@ -396,6 +396,27 @@ namespace YouWinDownloader
             addMetadataCheckBox.IsEnabled = true;
         }
 
+        // output CheckBox event handlers 
+        private void outputCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            outputNameTextBox.IsEnabled = true;
+        }
+
+        private void outputCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            outputNameTextBox.Text = "default = %(title)s.%(ext)s";
+            outputNameTextBox.IsEnabled = false;
+        }
+
+        // outputTextBox event handlers
+        private void outputNameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (outputNameTextBox.Text == "default = %(title)s.%(ext)s")
+            {
+                outputNameTextBox.Text = "";
+            }
+        }
+
         // Other Functions ////////////////////////////////////////////////////////////////////////////////////////////
         // but needed functions
 
@@ -513,7 +534,7 @@ namespace YouWinDownloader
             // output selection
             if (outputCheckBox.IsChecked == true)
             {
-
+                scriptText += " -o \"" + outputNameTextBox.Text + ".%(ext)s\"";
             }
             else
             {

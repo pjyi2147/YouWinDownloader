@@ -58,8 +58,8 @@
             </StackPanel>
         </GroupBox>
         <Label Content="Change output File Name" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Height="30"/>
-        <CheckBox x:Name="outputCheckBox" Content="CheckBox" HorizontalAlignment="Left" Margin="161,299,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.882,0.533" IsEnabled="False"/>
-        <TextBox HorizontalAlignment="Left" Height="21" Margin="188,297,0,0" TextWrapping="Wrap" Text="default = (title).(ext)" VerticalAlignment="Top" Width="344" IsEnabled="False"/>
+        <CheckBox x:Name="outputCheckBox" Content="CheckBox" HorizontalAlignment="Left" Margin="161,299,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.882,0.533" IsEnabled="False" Checked="outputCheckBox_Checked" Unchecked="outputCheckBox_Unchecked"/>
+        <TextBox x:Name="outputNameTextBox" HorizontalAlignment="Left" Height="21" Margin="188,297,0,0" TextWrapping="Wrap" Text="default = %(title)s.%(ext)s" VerticalAlignment="Top" Width="344" IsEnabled="False" GotFocus="outputNameTextBox_GotFocus"/>
         <CheckBox x:Name="musicAddThumbnailCheckBox" Content="Add Thumbnail from the video" HorizontalAlignment="Left" Margin="67,150,0,0" VerticalAlignment="Top" IsEnabled="False"/>
 
     </Grid>
