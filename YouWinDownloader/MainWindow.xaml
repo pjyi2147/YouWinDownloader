@@ -10,11 +10,11 @@
         <Label x:Name="urlLabel" Content="url:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.923,-1.154" Height="23"/>
         <TextBox x:Name="urlTextBox" HorizontalAlignment="Left" Height="23" Margin="37,10,0,0" TextWrapping="Wrap" Text="Full url including http://" VerticalAlignment="Top" Width="324" GotFocus="urlTextBox_GotFocus" LostFocus="urlTextBox_LostFocus" KeyDown="urlTextBox_KeyDown"/>
         <Button x:Name="validateBtn" Content="Validate!" HorizontalAlignment="Left" Margin="366,10,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="validateBtn_Click"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="522" Margin="10,62,0,0">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="522" Margin="10,62,0,0">
         </Border>
 
         <Label x:Name="optionLabel" Content="Available Options:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Height="29"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="10,167,0,0" VerticalAlignment="Top" Width="522">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="10,173,0,0" VerticalAlignment="Top" Width="522">
         </Border>
 
         <Label Content="Download location" HorizontalAlignment="Left" Margin="10,454,0,0" VerticalAlignment="Top"/>
@@ -23,10 +23,10 @@
         <Button x:Name="downloadBtn" Content="Download!" HorizontalAlignment="Left" Margin="457,480,0,0" VerticalAlignment="Top" Width="75" Height="23" IsEnabled="False" Click="downloadBtn_Click" RenderTransformOrigin="0.493,0.043"/>
         <Button x:Name="clearBtn" Content="Clear" HorizontalAlignment="Left" Margin="457,10,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="clearBtn_Click"/>
         <TextBox x:Name="CMDoutputTextBox" HorizontalAlignment="Left" Height="40" Margin="10,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="522"/>
-        <CheckBox x:Name="videoCheckBox" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked" Content="Video" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <CheckBox x:Name="videoCheckBox" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked" Content="Video" HorizontalAlignment="Left" Margin="11,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <CheckBox x:Name="musicCheckBox" IsEnabled="False" Checked="musicCheckBox_Checked" Unchecked="musicCheckBox_Unchecked" Content="Music" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.708,1.2"/>
         <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="37" Margin="10,350,0,0" TextWrapping="Wrap" Text="This is for debugging purpose. If a video doesn't download, then copy this selection and send it to me. I will try to fix the issue as soon as possible." VerticalAlignment="Top" Width="522" SpellCheck.IsEnabled="True"/>
-        <GroupBox Header="Resolution" HorizontalAlignment="Left" Height="111" Margin="217,168,0,0" VerticalAlignment="Top" Width="139">
+        <GroupBox Header="Resolution" HorizontalAlignment="Left" Height="111" Margin="218,174,0,0" VerticalAlignment="Top" Width="139">
             <StackPanel HorizontalAlignment="Left" Height="91" VerticalAlignment="Top" Width="123" Margin="0,0,0,-2">
                 <RadioButton x:Name="video4KRadioButton" Content="4K (3840 x 2160)" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" GroupName="Resolution"/>
                 <RadioButton x:Name="video2KRadioButton" Content="2K (2048 x 1920)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
@@ -36,7 +36,7 @@
                 <RadioButton x:Name="videoBestRadioButton" Content="Best Video" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="File extension" HorizontalAlignment="Left" Height="55" Margin="66,168,0,0" VerticalAlignment="Top" Width="146">
+        <GroupBox Header="File extension" HorizontalAlignment="Left" Height="55" Margin="67,174,0,0" VerticalAlignment="Top" Width="146">
             <StackPanel HorizontalAlignment="Left" Height="32" Margin="0,0,-2,0" VerticalAlignment="Top" Width="136">
                 <RadioButton x:Name="videoMp4RadioButton" Content=".mp4 (default)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="videoOptions" IsEnabled="False"/>
                 <RadioButton x:Name="videoMkvRadioButton" Content=".mkv (recommended)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-35,0" GroupName="videoOptions" IsEnabled="False" RenderTransformOrigin="0.496,1.267"/>
@@ -58,8 +58,9 @@
             </StackPanel>
         </GroupBox>
         <Label Content="Change output File Name" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Height="30"/>
-        <CheckBox x:Name="outputCheckBox" Content="CheckBox" HorizontalAlignment="Left" Margin="161,299,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.882,0.533"/>
+        <CheckBox x:Name="outputCheckBox" Content="CheckBox" HorizontalAlignment="Left" Margin="161,299,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.882,0.533" IsEnabled="False"/>
         <TextBox HorizontalAlignment="Left" Height="21" Margin="188,297,0,0" TextWrapping="Wrap" Text="default = (title).(ext)" VerticalAlignment="Top" Width="344" IsEnabled="False"/>
+        <CheckBox x:Name="musicAddThumbnailCheckBox" Content="Add Thumbnail from the video" HorizontalAlignment="Left" Margin="67,150,0,0" VerticalAlignment="Top" IsEnabled="False"/>
 
     </Grid>
 </Window>

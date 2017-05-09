@@ -149,6 +149,7 @@ namespace YouWinDownloader
                 videoCheckBox.IsEnabled = true;
                 urlTextBox.IsEnabled = false;
                 validateBtn.IsEnabled = false;
+                outputCheckBox.IsEnabled = true;
             }
             else
             {
@@ -170,6 +171,7 @@ namespace YouWinDownloader
             musicAACRadioButton.IsEnabled = true;
             musicMp3RadioButton.IsEnabled = true;
             musicOpusRadioButton.IsEnabled = true;
+            musicAddThumbnailCheckBox.IsEnabled = true;
             MessageBox.Show("Music always downloads to the best quality possible.", "Notice");
         }
 
@@ -181,11 +183,13 @@ namespace YouWinDownloader
             musicMp3RadioButton.IsEnabled = false;
             musicOpusRadioButton.IsEnabled = false;
             addMetadataCheckBox.IsEnabled = false;
+            musicAddThumbnailCheckBox.IsEnabled = false;
             // uncheck them
             musicAACRadioButton.IsChecked = false;
             musicMp3RadioButton.IsChecked = false;
             musicOpusRadioButton.IsChecked = false;
             addMetadataCheckBox.IsChecked = false;
+            musicAddThumbnailCheckBox.IsChe = false;
         }
 
         // video Check Box 
@@ -279,6 +283,9 @@ namespace YouWinDownloader
             videoBestRadioButton.IsChecked = false;
 
             addMetadataCheckBox.IsChecked = false;
+            musicAddThumbnailCheckBox.IsChecked = false;
+
+            outputCheckBox.IsChecked = false;
 
             // reset all enables
             musicCheckBox.IsEnabled = false;
@@ -294,6 +301,10 @@ namespace YouWinDownloader
             videoBestRadioButton.IsEnabled = false;
 
             addMetadataCheckBox.IsEnabled = false;
+            musicAddThumbnailCheckBox.IsEnabled = false;
+
+            outputCheckBox.IsEnabled = false;
+
             // make these two buttons work again
             urlTextBox.IsEnabled = true;
             validateBtn.IsEnabled = true;
@@ -428,7 +439,14 @@ namespace YouWinDownloader
                     scriptText += " --metadata-from-title " + "\"" + metadataString.Text + "\"";
                     scriptText += " --add-metadata";
                 }
+
+                // Thumbnail
+                if (musicAddThumbnailCheckBox.IsChecked == true)
+                {
+                    scriptText += " --embed-thumbnail";
+                }
             }
+            // video option
             else if (videoCheckBox.IsChecked == true)
             {
                 string resolution = "";
