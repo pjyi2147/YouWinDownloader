@@ -15,7 +15,19 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_08EDA7CCA099486BB75A92E8D19699C5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0A47730CDA68436B951D19AE88F087F5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0F7BE4D939AD4CFBA7C2CEA96E02F437"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -28,12 +40,6 @@
         "Entry"
         {
         "MsmKey" = "8:_2580B7116D1A4158A85EF14AF3B1F6B3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4F82D62950FB4BC68C7C8E75F44902E7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -150,6 +156,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_08EDA7CCA099486BB75A92E8D19699C5"
+            {
+            "SourcePath" = "8:D:\\programs\\ffmpeg-20170503-a75ef15-win32-static\\bin\\ffmpeg.exe"
+            "TargetName" = "8:ffmpeg.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_34BF5F14E34141FC85C6147C18961077"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0A47730CDA68436B951D19AE88F087F5"
             {
             "SourcePath" = "8:D:\\programs\\youtube-dl.exe"
@@ -170,10 +196,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2580B7116D1A4158A85EF14AF3B1F6B3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F7BE4D939AD4CFBA7C2CEA96E02F437"
             {
-            "SourcePath" = "8:C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\rocket.ico"
-            "TargetName" = "8:rocket.ico"
+            "SourcePath" = "8:D:\\programs\\ffmpeg-20170503-a75ef15-win32-static\\bin\\ffprobe.exe"
+            "TargetName" = "8:ffprobe.exe"
             "Tag" = "8:"
             "Folder" = "8:_34BF5F14E34141FC85C6147C18961077"
             "Condition" = "8:"
@@ -190,10 +216,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F82D62950FB4BC68C7C8E75F44902E7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2580B7116D1A4158A85EF14AF3B1F6B3"
             {
-            "SourcePath" = "8:D:\\programs\\ffmpeg-3.2.4-win32-static\\bin\\ffmpeg.exe"
-            "TargetName" = "8:ffmpeg.exe"
+            "SourcePath" = "8:C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\rocket.ico"
+            "TargetName" = "8:rocket.ico"
             "Tag" = "8:"
             "Folder" = "8:_34BF5F14E34141FC85C6147C18961077"
             "Condition" = "8:"
@@ -323,15 +349,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:YouWindownloader"
-        "ProductCode" = "8:{579DA7E9-EF8B-4980-8FDE-9AE26E671DBD}"
-        "PackageCode" = "8:{7416688B-AE84-460C-8D66-1C5E7C2049FE}"
+        "ProductCode" = "8:{7A02F300-4CEF-4F88-9B1C-8E8ABFBED096}"
+        "PackageCode" = "8:{BE5CD6B3-BF2C-4640-ABF1-39E0FC9F3C67}"
         "UpgradeCode" = "8:{FB33113C-6150-43DC-85F8-D23F7D2A8EBB}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.9.0"
+        "ProductVersion" = "8:0.9.28"
         "Manufacturer" = "8:Patrick Yi"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
