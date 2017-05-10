@@ -349,15 +349,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:YouWindownloader"
-        "ProductCode" = "8:{7A02F300-4CEF-4F88-9B1C-8E8ABFBED096}"
-        "PackageCode" = "8:{BE5CD6B3-BF2C-4640-ABF1-39E0FC9F3C67}"
+        "ProductCode" = "8:{93D4BE6D-D662-4424-B6B6-51A0FCEF8465}"
+        "PackageCode" = "8:{8AE2BAE5-6568-4D08-8FBE-AA8CA7006C26}"
         "UpgradeCode" = "8:{FB33113C-6150-43DC-85F8-D23F7D2A8EBB}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.9.28"
+        "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Patrick Yi"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -899,7 +899,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2039C37001734ECEB8DEFE4A127E3A0B"
             {
-            "SourcePath" = "8:..\\YouWinDownloader\\obj\\Debug\\YouWinDownloader.exe"
+            "SourcePath" = "8:..\\YouWinDownloader\\obj\\Release\\YouWinDownloader.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_34BF5F14E34141FC85C6147C18961077"
