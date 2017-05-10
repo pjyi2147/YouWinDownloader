@@ -171,7 +171,6 @@ namespace YouWinDownloader
             musicAACRadioButton.IsEnabled = true;
             musicMp3RadioButton.IsEnabled = true;
             musicOpusRadioButton.IsEnabled = true;
-            musicAddThumbnailCheckBox.IsEnabled = true;
             MessageBox.Show("Music always downloads to the best quality possible.", "Notice");
         }
 
@@ -379,6 +378,7 @@ namespace YouWinDownloader
         private void musicMp3RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             addMetadataCheckBox.IsEnabled = true;
+            musicAddThumbnailCheckBox.IsEnabled = true;
         }
 
         // musicopusRadioButton event handlers
@@ -387,6 +387,8 @@ namespace YouWinDownloader
             MessageBox.Show("Opus format does not support music metadata.\r\nTherefore, it is not supported in this program.", "Notice");
             addMetadataCheckBox.IsChecked = false;
             addMetadataCheckBox.IsEnabled = false;
+            musicAddThumbnailCheckBox.IsEnabled = false;
+            musicAddThumbnailCheckBox.IsChecked = false;
             metadataString_LostFocus(sender, e);
         }
 
@@ -394,6 +396,7 @@ namespace YouWinDownloader
         private void musicAACRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             addMetadataCheckBox.IsEnabled = true;
+            musicAddThumbnailCheckBox.IsEnabled = true;
         }
 
         // output CheckBox event handlers 

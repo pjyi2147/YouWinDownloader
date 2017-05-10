@@ -25,11 +25,11 @@
         <TextBox x:Name="CMDoutputTextBox" HorizontalAlignment="Left" Height="40" Margin="10,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="522"/>
         <CheckBox x:Name="videoCheckBox" IsEnabled="False" Checked="videoCheckBox_Checked" Unchecked="videoCheckBox_Unchecked" Content="Video" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
         <CheckBox x:Name="musicCheckBox" IsEnabled="False" Checked="musicCheckBox_Checked" Unchecked="musicCheckBox_Unchecked" Content="Music" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.708,1.2"/>
-        <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="37" Margin="10,350,0,0" TextWrapping="Wrap" Text="This is for debugging purpose. If a video doesn't download, then copy this selection and send it to me. I will try to fix the issue as soon as possible." VerticalAlignment="Top" Width="522" SpellCheck.IsEnabled="True"/>
-        <GroupBox Header="Resolution" HorizontalAlignment="Left" Height="111" Margin="218,174,0,0" VerticalAlignment="Top" Width="139">
+        <TextBox x:Name="scriptTextBox" HorizontalAlignment="Left" Height="45" Margin="10,342,0,0" TextWrapping="Wrap" Text="This is for debugging purpose. If a video doesn't download, then copy this selection and send it to me. I will try to fix the issue as soon as possible." VerticalAlignment="Top" Width="522" SpellCheck.IsEnabled="True"/>
+        <GroupBox Header="Resolution" HorizontalAlignment="Left" Height="118" Margin="218,174,0,0" VerticalAlignment="Top" Width="139">
             <StackPanel HorizontalAlignment="Left" Height="91" VerticalAlignment="Top" Width="123" Margin="0,0,0,-2">
                 <RadioButton x:Name="video4KRadioButton" Content="4K (3840 x 2160)" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" GroupName="Resolution"/>
-                <RadioButton x:Name="video2KRadioButton" Content="2K (2048 x 1920)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
+                <RadioButton x:Name="video2KRadioButton" Content="2K (2560 x 1440)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
                 <RadioButton x:Name="videoFHDRadioButton" Content="FHD (1080p)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
                 <RadioButton x:Name="videoHDRadioButton" Content="HD (720p)" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Resolution" IsEnabled="False"/>
                 <RadioButton x:Name="video480pRadioButton" Content="480p or lower" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.93,1.4" IsEnabled="False" GroupName="Resolution"/>
