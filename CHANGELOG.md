@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.0.1](https://github.com/yjs990427/YouWinDownloader/tree/1.0.1) (2017-05-13)
+[Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/1.0.0...1.0.1)
+
+**Fixed bugs:**
+
+- Redirect youtube-dl's errors [\#22](https://github.com/yjs990427/YouWinDownloader/issues/22)
+
+**Merged pull requests:**
+
+- Version 1.0.1 [\#23](https://github.com/yjs990427/YouWinDownloader/pull/23) ([yjs990427](https://github.com/yjs990427))
+
 ## [1.0.0](https://github.com/yjs990427/YouWinDownloader/tree/1.0.0) (2017-05-10)
 [Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/0.9.0...1.0.0)
 
