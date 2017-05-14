@@ -1,10 +1,15 @@
 # Change Log
 
 ## [1.0.1](https://github.com/yjs990427/YouWinDownloader/tree/1.0.1) (2017-05-13)
-[Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/1.0.0...1.0.1)
+[Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/1.0.1...1.0.1)
+
+**Implemented enhancements:**
+
+- url vaildator [\#8](https://github.com/yjs990427/YouWinDownloader/issues/8)
 
 **Fixed bugs:**
 
+- url vaildator [\#8](https://github.com/yjs990427/YouWinDownloader/issues/8)
 - Redirect youtube-dl's errors [\#22](https://github.com/yjs990427/YouWinDownloader/issues/22)
 
 **Merged pull requests:**
