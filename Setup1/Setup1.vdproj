@@ -899,7 +899,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2039C37001734ECEB8DEFE4A127E3A0B"
             {
-            "SourcePath" = "8:..\\YouWinDownloader\\obj\\Debug\\YouWinDownloader.exe"
+            "SourcePath" = "8:..\\YouWinDownloader\\obj\\Release\\YouWinDownloader.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_34BF5F14E34141FC85C6147C18961077"

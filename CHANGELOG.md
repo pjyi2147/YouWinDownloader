@@ -1,5 +1,24 @@
 # Change Log
 
+## [1.0.0](https://github.com/yjs990427/YouWinDownloader/tree/1.0.0) (2017-05-10)
+[Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/0.9.0...1.0.0)
+
+**Implemented enhancements:**
+
+- Video resolution support [\#18](https://github.com/yjs990427/YouWinDownloader/issues/18)
+- Song tags & a way to change the file's name, tags... etc. [\#9](https://github.com/yjs990427/YouWinDownloader/issues/9)
+
+**Fixed bugs:**
+
+- Downloading videos using the opus/MP3 music mode selected does not output correct in codec/file extension [\#19](https://github.com/yjs990427/YouWinDownloader/issues/19)
+
+**Merged pull requests:**
+
+- 1.0.0 release!!!! [\#21](https://github.com/yjs990427/YouWinDownloader/pull/21) ([yjs990427](https://github.com/yjs990427))
+- Resolution & metadata implemention [\#20](https://github.com/yjs990427/YouWinDownloader/pull/20) ([yjs990427](https://github.com/yjs990427))
+- Readme fix [\#16](https://github.com/yjs990427/YouWinDownloader/pull/16) ([yjs990427](https://github.com/yjs990427))
+- 0.9.0 release file [\#15](https://github.com/yjs990427/YouWinDownloader/pull/15) ([yjs990427](https://github.com/yjs990427))
+
 ## [0.9.0](https://github.com/yjs990427/YouWinDownloader/tree/0.9.0) (2017-05-06)
 [Full Changelog](https://github.com/yjs990427/YouWinDownloader/compare/0.1.0...0.9.0)
 
