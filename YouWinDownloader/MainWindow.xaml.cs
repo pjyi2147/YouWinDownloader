@@ -61,7 +61,7 @@ namespace YouWinDownloader
 
             process.Start();
 
-            while (!process.StandardOutput.EndOfStream)
+            while (!process.StandardOutput.EndOfStream || !process.StandardError.EndOfStream)
             {
                 if (downloadWorker.CancellationPending)
                 {
@@ -76,10 +76,16 @@ namespace YouWinDownloader
                     e.Cancel = true;
                     return;
                 }
-                else
+                else if (!process.StandardOutput.EndOfStream)
                 {
                     string line = process.StandardOutput.ReadLine();
                     worker.ReportProgress(1, line);
+                }
+                else if (!process.StandardError.EndOfStream)
+                {
+                    string error = process.StandardError.ReadLine();
+                    worker.ReportProgress(1, error);
+                    throw new Exception(error);
                 }
             }
         }
@@ -94,7 +100,11 @@ namespace YouWinDownloader
         // When finished (RunWorkerCompleted Method)
         private void downloadWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Cancelled)
+            if (e.Error != null)
+            {
+                MessageBox.Show("Error encountered!\r\n\r\n" + e.Error.Message, "Error");
+            }
+            else if (e.Cancelled)
             {
                 MessageBox.Show("Download Aborted!\r\nYou might need to delete .part file manually in the download folder.", "Abort");
             }
